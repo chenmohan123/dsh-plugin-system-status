@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "系统状态",
+    "description": "在对话页输入框下方常驻显示 CPU、内存、GPU、显存与 GPU 温度，并从左侧栏进入 CPU、内存、显存、磁盘与温度的历史曲线。历史仅在 DSH 运行时采样。",
+    "detail": "docs/DETAIL.md"
+  }
+}

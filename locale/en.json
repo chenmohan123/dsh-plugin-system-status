@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "System status",
+    "description": "A live CPU, memory, GPU, VRAM and GPU temperature strip under the composer, plus CPU, memory, VRAM, disk and temperature history charts reached from the left sidebar. History is sampled only while DSH runs.",
+    "detail": "docs/DETAIL.md"
+  }
+}

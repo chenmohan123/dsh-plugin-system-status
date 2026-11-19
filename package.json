@@ -1,0 +1,58 @@
+{
+  "name": "@local/dsh-system-status",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Real-time and historical CPU, GPU, memory, disk and temperature status for the machine running DeepSeek Harness.",
+  "license": "MIT",
+  "author": "chenmohan123",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenmohan123/dsh-plugin-system-status.git"
+  },
+  "homepage": "https://github.com/chenmohan123/dsh-plugin-system-status#readme",
+  "bugs": {
+    "url": "https://github.com/chenmohan123/dsh-plugin-system-status/issues"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "dsh",
+    "system-monitor",
+    "cpu",
+    "gpu",
+    "memory",
+    "vram",
+    "windows"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "host",
+    "locale/*.json",
+    "docs",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  }
+}

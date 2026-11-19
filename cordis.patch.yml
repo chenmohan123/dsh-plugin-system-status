@@ -1,0 +1,3 @@
+- insert:
+    - id: system-status
+      name: '@local/dsh-system-status'
