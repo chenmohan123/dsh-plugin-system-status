@@ -50,7 +50,7 @@
 
 ### 交付物
 
-一个本地安装的 bundle 包 `@local/dsh-system-status`，含 Host 半与 Client 半：
+一个本地安装的 bundle 包 `dsh-plugin-system-status`（发布到 npm），含 Host 半与 Client 半：
 
 ```
 package.json          dsh.bundle.patch + dsh.client（platform: web）

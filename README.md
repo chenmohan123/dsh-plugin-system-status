@@ -15,16 +15,18 @@ A DSH plugin (`dsh-plugin`) that shows live CPU / memory / GPU / VRAM / GPU temp
 
 ## 安装
 
-插件是「本地目录 bundle」，安装后由 DSH 的 plugin manager 管理，随插件启停。
+**从 npm（推荐）**：在 DSH 里打开 **Settings → Plugins → Add plugin**，输入包名 `dsh-plugin-system-status` 后点「安装」；或让 DSH 的 agent 调用 `plugin_manager` 的 `install_bundle`，`target` 传 `dsh-plugin-system-status`。
 
-1. 克隆或下载本仓库到本地：
+**从本仓库（开发或自定义用）**：
+
+1. 克隆仓库到本地：
    ```powershell
    git clone https://github.com/chenmohan123/dsh-plugin-system-status.git
    ```
-2. 在 DSH 里安装这个目录：**Settings → Plugins → Add plugin**，选择仓库目录；或在让 DSH 的 agent 调用 `plugin_manager` 的 `install_bundle`，`target` 传该目录的绝对路径。
+2. **Settings → Plugins → Add plugin** 选择仓库目录，或在 `install_bundle` 的 `target` 里传该目录的绝对路径。
 3. 首次安装经热更新生效，**刷新一次页面**即可看到实时读数与左侧栏图标。
 
-包名保持 `@local/dsh-system-status`（本地目录安装、非 npm 发布）；`cordis.patch.yml` 里的行 id 是 `system-status`。
+包名是 `dsh-plugin-system-status`（发布在 npm），`cordis.patch.yml` 里的行 id 是 `system-status`。
 
 ## 数据与实现
 

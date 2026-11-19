@@ -39,10 +39,10 @@
 - Create: `package.json`, `cordis.patch.yml`, `index.js`, `client.js`, `locale/zh.json`, `locale/en.json`, `icon.svg`, `docs/DETAIL.md`
 
 **Interfaces:**
-- Produces: 包名 `@local/dsh-system-status`；Client 半注册三个插槽：`sidebar.panellist`（id `system-status`）、`main`（key `system-status`）、`conversation.composer.dock`（id `system-status-bar`）；Host 半 `apply(ctx)` 恒定注册两条路由 `/dsh-system-status/stream`、`/dsh-system-status/history`。
+- Produces: 包名 `dsh-plugin-system-status`；Client 半注册三个插槽：`sidebar.panellist`（id `system-status`）、`main`（key `system-status`）、`conversation.composer.dock`（id `system-status-bar`）；Host 半 `apply(ctx)` 恒定注册两条路由 `/dsh-system-status/stream`、`/dsh-system-status/history`。
 
 - [ ] **Step 1:** 写 `package.json`：`type: module`，`exports` 含 `.` / `./client` / `./locale/*.json` / `./icon`，`files` 覆盖运行时文件，`dsh.bundle.patch: ./cordis.patch.yml`，`dsh.client: { platform: 'web', immediately: true, inject: ['@deepseek-ai/dsh-client-ui-conversation','@deepseek-ai/dsh-client-ui-layout','@deepseek-ai/dsh-client-ui-sidebar'] }`。
-- [ ] **Step 2:** 写 `cordis.patch.yml`：插入一行 `id: system-status`、`name: '@local/dsh-system-status'`。
+- [ ] **Step 2:** 写 `cordis.patch.yml`：插入一行 `id: system-status`、`name: 'dsh-plugin-system-status'`。
 - [ ] **Step 3:** 写占位 `index.js`（`export function apply(ctx)` 只注册两条返回固定 JSON 的路由）与占位 `client.js`（`window.__ModuleLoader__.load` 注册三个插槽，每个都渲染一行本地化标题文本）。
 - [ ] **Step 4:** 写 `locale/zh.json`、`locale/en.json`（`meta.title` = 系统状态 / System status，`meta.description` 概述、`meta.detail: docs/DETAIL.md`）、`icon.svg`（自绘仪表盘图标）、`docs/DETAIL.md`（功能、用法、限制：仅 DSH 运行时记录、仅 GPU 温度）。
 - [ ] **Step 5:** `node --check index.js` 与 `node --check client.js`，预期无输出。

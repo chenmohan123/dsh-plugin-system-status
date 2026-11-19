@@ -1,7 +1,6 @@
 {
-  "name": "@local/dsh-system-status",
+  "name": "dsh-plugin-system-status",
   "version": "0.1.0",
-  "private": true,
   "description": "Real-time and historical CPU, GPU, memory, disk and temperature status for the machine running DeepSeek Harness.",
   "license": "MIT",
   "author": "chenmohan123",
@@ -37,7 +36,7 @@
     "cordis.patch.yml",
     "host",
     "locale/*.json",
-    "docs",
+    "docs/DETAIL.md",
     "icon.svg"
   ],
   "dsh": {
