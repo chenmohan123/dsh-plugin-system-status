@@ -1,8 +1,11 @@
 # dsh-plugin-system-status
 
+[![npm version](https://img.shields.io/npm/v/dsh-plugin-system-status.svg)](https://www.npmjs.com/package/dsh-plugin-system-status)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 一个 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）插件：在对话页输入框下方常驻显示本机的 **CPU、内存、GPU、显存、GPU 温度** 实时读数，并从左侧栏进入 **历史曲线**（CPU、GPU、内存、显存、GPU 温度、各磁盘已用空间）。
 
-A DSH plugin (`dsh-plugin`) that shows live CPU / memory / GPU / VRAM / GPU temperature under the composer, with historical charts behind a left-sidebar entry.
+A DSH plugin (`dsh-plugin`) that shows live CPU / memory / GPU / VRAM / GPU temperature under the composer, with historical charts behind a left-sidebar entry. Install it by name: `dsh-plugin-system-status`.
 
 <p align="center"><img src="icon.svg" width="96" height="96" alt="System status icon"></p>
 
