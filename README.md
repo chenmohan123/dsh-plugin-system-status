@@ -47,6 +47,7 @@ A DSH plugin (`dsh-plugin`) that shows live CPU / memory / GPU / VRAM / GPU temp
 
 ## 限制
 
+- **GPU 数据仅支持 NVIDIA**：来自 `nvidia-smi`。集成显卡（Intel / AMD APU）与 AMD 独立显卡暂时不显示 GPU 信息，实时条与历史页会标注「未检测到 NVIDIA 显卡」。Windows 自带的 WDDM 计数器能读到这些显卡的利用率与内存占用，但既没有温度、也没有显存总量，且单次读取需 1–3.5 秒，会拖慢 3 秒的采样节奏，因此没有采用。
 - **只有 GPU 温度**：Windows 的 ACPI 热区接口（`MSAcpi_ThermalZoneTemperature`）拒绝访问，CPU / 主板温度需要 LibreHardwareMonitor 这类带内核驱动的工具，本插件未接入。
 - **历史只在 DSH 运行时采样**：DSH 关闭、休眠、关机期间没有数据。
 - **采样频率与保留期是代码常量**（3 秒 / 7 天），暂未暴露成配置项。
