@@ -126,26 +126,42 @@ window.__ModuleLoader__.load({
           translate = null
         }
       }
-      const activeIsChinese = () => {
+      const activeLanguage = () => {
         try {
-          return String(locale?.getLocale?.().active ?? 'en').toLowerCase().startsWith('zh')
+          const active = locale?.getLocale?.().active
+          if (typeof active === 'string' && active !== '') return active
         } catch {
-          return false
+          /* fall through to the browser language */
         }
+        try {
+          if (typeof navigator !== 'undefined' && typeof navigator.language === 'string') {
+            return navigator.language
+          }
+        } catch {
+          /* fall through to English */
+        }
+        return 'en'
       }
+      const isChinese = () => activeLanguage().toLowerCase().startsWith('zh')
       return {
         disposers,
         t(key) {
+          // Both inline dictionaries are complete, so the active language decides
+          // directly and a missing locale service only degrades to the browser
+          // language instead of silently forcing English.
+          const primary = isChinese() ? DICT.zh : DICT.en
+          const secondary = isChinese() ? DICT.en : DICT.zh
+          if (typeof primary[key] === 'string') return primary[key]
+          if (typeof secondary[key] === 'string') return secondary[key]
           if (translate !== null) {
             try {
               const value = translate(key)
               if (typeof value === 'string' && value !== '' && value !== key) return value
             } catch {
-              /* fall through to the inline dictionary */
+              /* fall through to the key */
             }
           }
-          const dict = activeIsChinese() ? DICT.zh : DICT.en
-          return dict[key] ?? DICT.en[key] ?? key
+          return key
         },
         subscribe: typeof locale?.subscribe === 'function' ? (fn) => locale.subscribe(fn) : null,
       }
